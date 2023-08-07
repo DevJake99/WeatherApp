@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" src="style.css">
     <title>5-Day Forecast</title>
 </head>
 <body>
-    
+    <main>
+
+        <h1> 5-Day City Forecast</h1>
+        <form id="searchBar ">
+            <label for="searchBar-input "> Search by City: </label>
+            <input type="text" name="searchBar-input"> 
+            <button type="submit">Search!</button>
+        </form>
+        <hr>
+        <section id="searchHistory">
+            <!-- This will be where the search history is stored -->
+            <a id="searchHistoryLabel"></a>
+        </section>
+        <section id="todaySection"></section>
+        <section id="fiveDaySection"></section>
+
+        <script src="script.js"></script>
+    </main>
 </body>
 </html>
