@@ -16,6 +16,18 @@ header {
     text-align: left;
 }
 
+#searchLabel {
+    position: relative;
+    left: 35px;
+    font-weight: 800;
+}
+
+#searchBar-input {
+    position: relative;
+    left: 20px;
+    top: 5px;
+}
+
 #searchBtn {
     /*colors/fonts/style*/
     color: white;
@@ -24,7 +36,7 @@ header {
     /* position section*/
     position: relative;
     top: 5px;
-    left: 25px;
+    left: 0px;
     margin-top: 10px;
     margin-bottom: 10px;
     /*size*/
@@ -44,8 +56,20 @@ header {
     border-style: solid;
 }
 
-#fiveDay {
+#fiveDayCOntainer {
+
+    flex-wrap: wrap;
     border-style: outset;
     position: relative;
     top: 130px;
+
+}
+
+#fiveDay {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border-style: outset;
+    position: relative;
+    top: 0px;
 }

@@ -15,7 +15,7 @@
         <section id="left-side">
             <h1> 5-Day Forecast</h1>
             <form id="city-search">
-                <label for="searchBar"> Search by City: </label>
+                <label for="searchBar" id="searchLabel"> Search by City: </label><br>
                 <input type="text" name="searchBar" id="searchBar-input"> <br>
                 <button id="searchBtn" type="submit">Search!</button>
             </form>
@@ -42,8 +42,9 @@
                 <a id="todayHum"></a>
             </section>
 
+            <!--<section id="fiveDayContainer"> -->
+            <h2>5-Day Forecast:</h2>
             <section id="fiveDay">
-                <h2>5-Day Forecast:</h2>
                 <div id="dayOne">
                     <h3 id="oneDate"></h3><br>
                     <h4 id="dayOneTemp"></h4><br>
@@ -66,10 +67,12 @@
                 </div>
                 <div id="dayFive">
                     <h3 id="fiveDate"></h3><br>
-                    <h4 id="dayzFiveTemp"></h4><br>
+                    <h4 id="dayFiveTemp"></h4><br>
                     <h4 id="dayFiveWind"></h4>
                 </div>
+
             </section>
+            <!--</section> -->
         </section>
 
 
