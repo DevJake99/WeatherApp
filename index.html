@@ -1,29 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" src="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
     <title>5-Day Forecast</title>
 </head>
+
 <body>
     <main>
-
-        <h1> 5-Day City Forecast</h1>
-        <form id="searchBar ">
-            <label for="searchBar-input "> Search by City: </label>
-            <input type="text" name="searchBar-input"> 
-            <button type="submit">Search!</button>
-        </form>
-        <hr>
-        <section id="searchHistory">
-            <!-- This will be where the search history is stored -->
-            <a id="searchHistoryLabel"></a>
+        <header> Weather Dashboard</header>
+        <section id="left-side">
+            <h1> 5-Day Forecast</h1>
+            <form id="city-search">
+                <label for="searchBar"> Search by City: </label>
+                <input type="text" name="searchBar" id="searchBar-input"> <br>
+                <button id="searchBtn" type="submit">Search!</button>
+            </form>
+            <hr>
+            <section id="searchHistory">
+                <!-- This will be where the search history is stored -->
+                <a id="searchHistoryLabel">Recent Searches:</a>
+                <ul id="historyList">
+                    <li>
+                        <button>city1</button>
+                    </li>
+                    <li>
+                        <button>city2</button>
+                    </li>
+                </ul>
+            </section>
         </section>
-        <section id="todaySection"></section>
-        <section id="fiveDaySection"></section>
+
+        <section id="right-side">
+            <section id="todaySection">
+                <h2 id="todayLocation"> Todays Weather:</h2>
+                <a id="todayTemp"></a> <br>
+                <a id="todayWind"></a>
+                <a id="todayHum"></a>
+            </section>
+
+            <section id="fiveDay">
+                <h2>5-Day Forecast:</h2>
+                <div id="dayOne">
+                    <h3 id="oneDate"></h3><br>
+                    <h4 id="dayOneTemp"></h4><br>
+                    <h4 id="dayOneWind"></h4>
+                </div>
+                <div id="dayTwo">
+                    <h3 id="twoDate"></h3><br>
+                    <h4 id="dayTwoTemp"></h4><br>
+                    <h4 id="dayTwoWind"></h4>
+                </div>
+                <div id="dayThree">
+                    <h3 id="threeDate"></h3><br>
+                    <h4 id="dayThreeTemp"></h4><br>
+                    <h4 id="dayThreeWind"></h4>
+                </div>
+                <div id="dayFour">
+                    <h3 id="fourDate"></h3><br>
+                    <h4 id="dayFourTemp"></h4><br>
+                    <h4 id="dayFourWind"></h4>
+                </div>
+                <div id="dayFive">
+                    <h3 id="fiveDate"></h3><br>
+                    <h4 id="dayzFiveTemp"></h4><br>
+                    <h4 id="dayFiveWind"></h4>
+                </div>
+            </section>
+        </section>
+
+
 
         <script src="script.js"></script>
     </main>
 </body>
+
 </html>

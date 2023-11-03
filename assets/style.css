@@ -1,0 +1,51 @@
+header {
+    text-align: center;
+    background-image: linear-gradient(to right, rgb(0, 213, 255), rgb(0, 123, 255));
+    height: 73px;
+    padding-top: 0px;
+
+}
+
+#left-side {
+    border-style: solid;
+
+    position: absolute;
+    top: 5em;
+    left: 10px;
+    margin: 0;
+    text-align: left;
+}
+
+#searchBtn {
+    /*colors/fonts/style*/
+    color: white;
+    background-color: #5EA6D1;
+    border-radius: 12px;
+    /* position section*/
+    position: relative;
+    top: 5px;
+    left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /*size*/
+    padding: 10px 75px;
+
+}
+
+#right-side {
+    width: 55%;
+    position: relative;
+    top: 0px;
+    left: 350px;
+    bottom: 0px;
+}
+
+#todaySection {
+    border-style: solid;
+}
+
+#fiveDay {
+    border-style: outset;
+    position: relative;
+    top: 130px;
+}
