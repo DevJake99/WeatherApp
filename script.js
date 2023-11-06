@@ -18,30 +18,35 @@ let dayOneDate = $('#oneDate');
 let oneI = $('#oneI');
 let dayOneTemp = $('#dayOneTemp');
 let dayOneWind = $('#dayOneWind');
+let dayOneHum = $('#dayOneHum');
 
 let dayTwoDiv = $('#dayTwo');
 let twoI = $('#twoI');
 let dayTwoDate = $('#twoDate');
 let dayTwoTemp = $('#dayTwoTemp');
 let dayTwoWind = $('#dayTwoWind');
+let dayTwoHum = $('#dayTwoHum');
 
 let dayThreeDiv = $('#dayThree');
 let threeI = $('#threeI');
 let dayThreeDate = $('#threeDate');
 let dayThreeTemp = $('#dayThreeTemp');
 let dayThreeWind = $('#dayThreeWind');
+let dayThreeHum = $('#dayThreeHum');
 
 let dayFourDiv = $('#dayFour');
 let fourI = $('#fourI');
 let dayFourDate = $('#fourDate');
 let dayFourTemp = $('#dayFourTemp');
 let dayFourWind = $('#dayFourWind');
+let dayFourHum = $('#dayFourHum');
 
 let dayFiveDiv = $('#dayFive');
 let fiveI = $('#fiveI');
 let dayFiveDate = $('#fiveDate');
 let dayFiveTemp = $('#dayFiveTemp');
 let dayFiveWind = $('#dayFiveWind');
+let dayFiveHum = $('#dayFiveHum');
 
 let historyBtn = $('#h')
 
@@ -76,6 +81,8 @@ function searchCity(city) {
 
             todayTemp.text(`Temperature: ${f} °F`);
             todayWind.text(`Wind Speed: ${m} mi/h`);
+            console.log('Today: ', data)
+            todayHum.text(`Humidity: ${data.main.humidity} %`)
             // Get Lon and Lat for 5 day forcast request
             let lat = data.coord.lat;
             let lon = data.coord.lon;
@@ -97,6 +104,7 @@ function searchCity(city) {
                     dayOneDate.text(dateOne);
                     dayOneTemp.text(`Temp: ${tempF} °F`);
                     dayOneWind.text(`Wind: ${data.list[3].wind.speed} mi/h`);
+                    dayOneHum.text(`Humidity: ${data.list[3].main.humidity}%`)
 
                     // Day 2
                     let tempFTwo = KtoF(data.list[11].main.temp)
@@ -108,6 +116,7 @@ function searchCity(city) {
                     dayTwoDate.text(dateTwo);
                     dayTwoTemp.text(`Temp: ${tempFTwo} °F`);
                     dayTwoWind.text(`Wind: ${data.list[11].wind.speed} mi/h`);
+                    dayTwoHum.text(`Humidity: ${data.list[11].main.humidity} %`)
 
                     //Day 3
                     let tempFThree = KtoF(data.list[19].main.temp);
@@ -119,6 +128,8 @@ function searchCity(city) {
                     dayThreeDate.text(dateThree);
                     dayThreeTemp.text(`Temp: ${tempFThree} °F`);
                     dayThreeWind.text(`Wind: ${data.list[19].wind.speed} mi/h`);
+                    dayThreeHum.text(`Humidity: ${data.list[19].main.humidity}%`)
+
 
                     //Day 4
                     let tempFFour = KtoF(data.list[27].main.temp);
@@ -130,6 +141,8 @@ function searchCity(city) {
                     dayFourDate.text(dateFour);
                     dayFourTemp.text(`Temp: ${tempFFour} °F`);
                     dayFourWind.text(`Wind: ${data.list[27].wind.speed} mi/h`);
+                    dayFourHum.text(`Humidity: ${data.list[27].main.humidity}%`)
+
 
                     //Day 5
                     let tempFFive = KtoF(data.list[36].main.temp);
@@ -141,6 +154,8 @@ function searchCity(city) {
                     dayFiveDate.text(dateFive);
                     dayFiveTemp.text(`Temp: ${tempFFive} °F`);
                     dayFiveWind.text(`Wind: ${data.list[36].wind.speed} mi/h`);
+                    dayFiveHum.text(`Humidity: ${data.list[36].main.humidity}%`)
+
 
                 })
 
