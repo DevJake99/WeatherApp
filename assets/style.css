@@ -1,13 +1,38 @@
 header {
+    color: rgb(63, 73, 74);
     text-align: center;
     background-image: linear-gradient(to right, rgb(0, 213, 255), rgb(0, 123, 255));
     height: 73px;
     padding-top: 0px;
+    font-family: "fantasy", "CopperPlate";
+    font-size: 50px;
+    font-weight: 900;
 
+}
+
+#historyList {
+    list-style-type: none;
+}
+
+.h {
+    background-color: #697075;
+    border-radius: 12px;
+}
+
+.eachDay {
+    background-color: #1c394a;
+    color: white;
+}
+
+#headerSection {
+    position: relative;
+    top: 10px;
+    left: 200px;
 }
 
 #left-side {
     border-style: solid;
+    background-color: rgb(221, 234, 245);
 
     position: absolute;
     top: 5em;
@@ -50,10 +75,19 @@ header {
     top: 0px;
     left: 350px;
     bottom: 0px;
+
 }
 
 #todaySection {
     border-style: solid;
+    background-color: rgb(221, 234, 245);
+
+}
+
+#todayDeets {
+    display: flex;
+    flex-direction: column;
+    font-weight: 900;
 }
 
 #fiveDayCOntainer {

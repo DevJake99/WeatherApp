@@ -11,7 +11,9 @@
 
 <body>
     <main>
-        <header> Weather Dashboard</header>
+        <header>
+            <section id="headerSection">Weather Dashboard</section>
+        </header>
         <section id="left-side">
             <h1> 5-Day Forecast</h1>
             <form id="city-search">
@@ -24,12 +26,7 @@
                 <!-- This will be where the search history is stored -->
                 <a id="searchHistoryLabel">Recent Searches:</a>
                 <ul id="historyList">
-                    <li>
-                        <button>city1</button>
-                    </li>
-                    <li>
-                        <button>city2</button>
-                    </li>
+
                 </ul>
             </section>
         </section>
@@ -37,36 +34,50 @@
         <section id="right-side">
             <section id="todaySection">
                 <h2 id="todayLocation"> Todays Weather:</h2>
-                <a id="todayTemp"></a> <br>
-                <a id="todayWind"></a>
-                <a id="todayHum"></a>
+                <img id="todayI"> <br>
+                <section id="todayDeets">
+                    <a id="todayTemp"></a> <br>
+                    <a id="todayWind"></a>
+                    <a id="todayHum"></a>
+
+                </section>
             </section>
 
             <!--<section id="fiveDayContainer"> -->
             <h2>5-Day Forecast:</h2>
-            <section id="fiveDay">
+            <section class='eachDay' id="fiveDay">
                 <div id="dayOne">
-                    <h3 id="oneDate"></h3><br>
+                    <h3 id="oneDate"></h3>
+                    <img id="oneI"></img>
+                    <br>
                     <h4 id="dayOneTemp"></h4><br>
                     <h4 id="dayOneWind"></h4>
                 </div>
-                <div id="dayTwo">
-                    <h3 id="twoDate"></h3><br>
+                <div class='eachDay' id="dayTwo">
+                    <h3 id="twoDate"></h3>
+                    <img id="twoI"></img>
+                    <br>
                     <h4 id="dayTwoTemp"></h4><br>
                     <h4 id="dayTwoWind"></h4>
                 </div>
-                <div id="dayThree">
-                    <h3 id="threeDate"></h3><br>
+                <div class='eachDay' id="dayThree">
+                    <h3 id="threeDate"></h3>
+                    <img id="threeI"></img>
+                    <br>
                     <h4 id="dayThreeTemp"></h4><br>
                     <h4 id="dayThreeWind"></h4>
                 </div>
-                <div id="dayFour">
-                    <h3 id="fourDate"></h3><br>
+                <div class='eachDay' id="dayFour">
+                    <h3 id="fourDate"></h3>
+                    <img id="fourI"></img>
+                    <br>
                     <h4 id="dayFourTemp"></h4><br>
                     <h4 id="dayFourWind"></h4>
                 </div>
-                <div id="dayFive">
-                    <h3 id="fiveDate"></h3><br>
+                <div class='eachDay' id="dayFive">
+                    <h3 id="fiveDate"></h3>
+                    <img id="fiveI"></img>
+                    <br>
                     <h4 id="dayFiveTemp"></h4><br>
                     <h4 id="dayFiveWind"></h4>
                 </div>

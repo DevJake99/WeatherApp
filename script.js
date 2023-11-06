@@ -11,32 +11,41 @@ let historyList = $('#historyList');
 let todayTemp = $('#todayTemp');
 let todayWind = $('#todayWind');
 let todayHum = $('#todayHum');
-
+let todayI = $('#todayI')
 // Declare dynamic HMTL elements for 5 day section
 let dayOneDiv = $('#dayOne');
 let dayOneDate = $('#oneDate');
+let oneI = $('#oneI');
 let dayOneTemp = $('#dayOneTemp');
 let dayOneWind = $('#dayOneWind');
 
 let dayTwoDiv = $('#dayTwo');
+let twoI = $('#twoI');
 let dayTwoDate = $('#twoDate');
 let dayTwoTemp = $('#dayTwoTemp');
 let dayTwoWind = $('#dayTwoWind');
 
 let dayThreeDiv = $('#dayThree');
+let threeI = $('#threeI');
 let dayThreeDate = $('#threeDate');
 let dayThreeTemp = $('#dayThreeTemp');
 let dayThreeWind = $('#dayThreeWind');
 
 let dayFourDiv = $('#dayFour');
+let fourI = $('#fourI');
 let dayFourDate = $('#fourDate');
 let dayFourTemp = $('#dayFourTemp');
 let dayFourWind = $('#dayFourWind');
 
 let dayFiveDiv = $('#dayFive');
+let fiveI = $('#fiveI');
 let dayFiveDate = $('#fiveDate');
 let dayFiveTemp = $('#dayFiveTemp');
 let dayFiveWind = $('#dayFiveWind');
+
+let historyBtn = $('#h')
+
+
 
 // Conversion functions
 function KtoF(Kelvin) {
@@ -63,6 +72,8 @@ function searchCity(city) {
             let f = CtoF(data.main.temp);
             let m = kmToM(data.wind.speed);
             todayHTwo.text(`The Weather Today in ${city} is ${data.weather[0].description}`);
+            todayI.attr('src', `./assets/${data.weather[0].icon}.png`)
+
             todayTemp.text(`Temperature: ${f} °F`);
             todayWind.text(`Wind Speed: ${m} mi/h`);
             // Get Lon and Lat for 5 day forcast request
@@ -74,6 +85,7 @@ function searchCity(city) {
             fetch(fiveDayURL).then((response) => response.json())
                 .then((data) => {
                     console.log('Data', data);
+                    console.log('img: ', data.list[3].weather[0].icon)
                     //Parse/clean data for the following 5 days
                     //Day 1
                     let tempF = KtoF(data.list[3].main.temp)
@@ -81,6 +93,7 @@ function searchCity(city) {
                     let parts = dateTimeOne.split(' ');
                     let dayOne = parts[0].split('-');
                     let dateOne = `${dayOne[1]}/${dayOne[2]}/${dayOne[0]}`;
+                    oneI.attr('src', `./assets/${data.list[3].weather[0].icon}.png`)
                     dayOneDate.text(dateOne);
                     dayOneTemp.text(`Temp: ${tempF} °F`);
                     dayOneWind.text(`Wind: ${data.list[3].wind.speed} mi/h`);
@@ -91,6 +104,7 @@ function searchCity(city) {
                     let partsTwo = dateTimeTwo.split(' ');
                     let dayTwo = partsTwo[0].split('-');
                     let dateTwo = `${dayTwo[1]}/${dayTwo[2]}/${dayTwo[0]}`;
+                    twoI.attr('src', `./assets/${data.list[11].weather[0].icon}.png`)
                     dayTwoDate.text(dateTwo);
                     dayTwoTemp.text(`Temp: ${tempFTwo} °F`);
                     dayTwoWind.text(`Wind: ${data.list[11].wind.speed} mi/h`);
@@ -101,6 +115,7 @@ function searchCity(city) {
                     let partsThree = dateTimeThree.split(' ');
                     let dayThree = partsThree[0].split('-');
                     let dateThree = `${dayThree[1]}/${dayThree[2]}/${dayThree[0]}`;
+                    threeI.attr('src', `./assets/${data.list[19].weather[0].icon}.png`)
                     dayThreeDate.text(dateThree);
                     dayThreeTemp.text(`Temp: ${tempFThree} °F`);
                     dayThreeWind.text(`Wind: ${data.list[19].wind.speed} mi/h`);
@@ -111,6 +126,7 @@ function searchCity(city) {
                     let partsFour = dateTimeFour.split(' ');
                     let dayFour = partsFour[0].split('-');
                     let dateFour = `${dayFour[1]}/${dayFour[2]}/${dayFour[0]}`;
+                    fourI.attr('src', `./assets/${data.list[27].weather[0].icon}.png`)
                     dayFourDate.text(dateFour);
                     dayFourTemp.text(`Temp: ${tempFFour} °F`);
                     dayFourWind.text(`Wind: ${data.list[27].wind.speed} mi/h`);
@@ -121,6 +137,7 @@ function searchCity(city) {
                     let partsFive = dateTimeFive.split(' ');
                     let dayFive = partsFive[0].split('-');
                     let dateFive = `${dayFive[1]}/${dayFive[2]}/${dayFive[0]}`;
+                    fiveI.attr('src', `./assets/${data.list[36].weather[0].icon}.png`)
                     dayFiveDate.text(dateFive);
                     dayFiveTemp.text(`Temp: ${tempFFive} °F`);
                     dayFiveWind.text(`Wind: ${data.list[36].wind.speed} mi/h`);
@@ -133,12 +150,40 @@ function searchCity(city) {
 
 };
 
+let i = 0
+const recentSearches = [];
 
+$(document).ready(function () {
+    // Loop through localStorage
+    for (let j = 0; j < localStorage.length; j++) {
+        // Get the key for the current item
+        let key = localStorage.key(j);
+        // Get the value of the current item
+        let value = localStorage.getItem(key);
+        // Append a new button to the history list
+        $('#historyList').append(`<li><button class='h' id='s${key}'>${value}</button></li>`);
+    }
+});
 
 searchBtn.on('click', (event) => {
     event.preventDefault();
     let input = searchInput.val()
     searchCity(input);
+    i++;
+    // Stores user input in local storage using i (number of clicks) as the key
+    localStorage.setItem(i, input);
+    recentSearches.push(input);
+    // Start recent searches logic
+    historyList.append(`<li><button class="h" id='s${i}'>${localStorage.getItem(i)}</button></li>`);
+
 
 });
+// Click handler for DOM elements (elemnts from local storage) to provide functionality to "recent searches" buttons
+$(document).on('click', '.h', (event) => {
+    event.preventDefault();
+    let button = $(event.target).text();
+    //let btnText = button.text();
+    console.log('btn: ', button);
+    searchCity(button);
+})
 
