@@ -1,6 +1,8 @@
 # Weather App - API Fetch
 Link : https://devjake99.github.io/WeatherApp/
 
+## Screenshot
+![screenshot](./assets/Screenshot%202023-11-05%20at%206.26.05 PM.png)
 ## Description
 This Application fetches data from a weather appi in order to display on a simple page I designed with html and CSS. The app fetches data for the current day and also fetches the weather for the following five days .
 
